@@ -1,8 +1,10 @@
 package models.person;
 
+import models.storage.StorageItem;
+
 import java.util.Date;
 
-public class Person {
+public class Person implements StorageItem {
     protected String id;
     protected String fullName;
     protected Date dateOfBirth;

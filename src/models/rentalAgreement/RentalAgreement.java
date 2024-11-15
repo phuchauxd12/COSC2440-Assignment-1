@@ -1,12 +1,14 @@
 package models.rentalAgreement;
 
 import models.person.roles.Tenant;
+import models.storage.StorageItem;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class RentalAgreement {
+public class RentalAgreement implements StorageItem {
+ private String id;
  private String mainTenantId;
  private List<String> subTenantIdList;
  private String propertyId;
@@ -18,6 +20,7 @@ private double rentingFree;
 private  AgreementStatus status;
 
     public RentalAgreement() {
+        this.id = "Default";
         this.mainTenantId = "Default";
         this.subTenantIdList = new ArrayList<>();
         this.propertyId = "Default";
@@ -29,7 +32,8 @@ private  AgreementStatus status;
         this.status = null;
     }
 
-    public RentalAgreement(String mainTenantId, List<String> subTenantIdList, String propertyId, String ownerId, List<String> hostIdList, Period period, Date contractDate, double rentingFree, AgreementStatus status) {
+    public RentalAgreement(String id,String mainTenantId, List<String> subTenantIdList, String propertyId, String ownerId, List<String> hostIdList, Period period, Date contractDate, double rentingFree, AgreementStatus status) {
+        this.id = id;
         this.mainTenantId = mainTenantId;
         this.subTenantIdList = subTenantIdList;
         this.propertyId = propertyId;
@@ -39,6 +43,10 @@ private  AgreementStatus status;
         this.contractDate = contractDate;
         this.rentingFree = rentingFree;
         this.status = status;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getMainTenantId() {
@@ -59,6 +67,10 @@ private  AgreementStatus status;
 
     public String getPropertyId() {
         return propertyId;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setPropertyId(String propertyId) {
@@ -116,7 +128,8 @@ private  AgreementStatus status;
     @Override
     public String toString() {
         return "RentalAgreement{" +
-                "mainTenantId='" + mainTenantId + '\'' +
+                "id='" + id + '\'' +
+                ", mainTenantId='" + mainTenantId + '\'' +
                 ", subTenantIdList=" + subTenantIdList +
                 ", propertyId='" + propertyId + '\'' +
                 ", ownerId='" + ownerId + '\'' +
