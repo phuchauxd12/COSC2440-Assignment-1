@@ -1,11 +1,7 @@
 import controllers.person.tenant.TenantController;
-import models.person.roles.Tenant;
 import repositories.person.tenant.FileBasedTenantRepository;
 import repositories.person.tenant.TenantRepository;
-import utils.IdGenerator;
-import views.person.views.TenantView;
-
-import java.util.Date;
+import views.person.TenantView;
 
 public class Main {
     public static void main(String[] args) {

@@ -2,8 +2,9 @@ package controllers.person.tenant;
 
 import controllers.IController;
 import models.person.roles.Tenant;
+import utils.DateHandler;
 import utils.IdGenerator;
-import views.person.views.TenantView;
+import views.person.TenantView;
 import repositories.person.tenant.TenantRepository;
 
 import java.util.Date;
@@ -30,9 +31,16 @@ public class TenantController implements IController {
         String name = scanner.nextLine();
         System.out.print("Enter Contact Info: ");
         String contact = scanner.nextLine();
-        Date dateOfBirth = new Date();
-        Tenant tenant = new Tenant(IdGenerator.randomId(), name, dateOfBirth, contact);
-        tenantRepository.add(tenant);
+        System.out.print("Enter Date Of Birth: ");
+        String date= scanner.nextLine();
+        Date dateOfBirth = DateHandler.parseDate(date);
+        if(dateOfBirth != null){
+            Tenant tenant = new Tenant(IdGenerator.randomId(), name, dateOfBirth, contact);
+            tenantRepository.add(tenant);
+        }
+        else {
+            System.out.println("Invalid date format. Please use dd/MM/yyyy.");
+        }
     }
 
     @Override
