@@ -16,7 +16,7 @@ public class Main {
 
         // Display all tenants
         System.out.println("All Tenants:");
-        tenantRepository.findAll().forEach(view::displayTenantDetails);
+        view.displayAllTenants(tenantRepository.findAll());
 
         // Find a tenant by ID
 //        Tenant tenant = tenantRepository.findById("1");

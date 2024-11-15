@@ -24,10 +24,10 @@ public class FileBasedTenantRepository implements TenantRepository {
     }
 
     @Override
-    public void add(Tenant tenant) {
+    public void add(Tenant storageItem) {
         List<Tenant> tenants = findAll();
-        tenants.removeIf(t -> t.getId().equals(tenant.getId())); // Remove existing tenant with same ID
-        tenants.add(tenant);
+        tenants.removeIf(t -> t.getId().equals(storageItem.getId())); // Remove existing tenant with same ID
+        tenants.add(storageItem);
         List<String> lines = new ArrayList<>();
         for (Tenant t : tenants) {
             lines.add(t.toString());
