@@ -8,7 +8,6 @@ import java.util.List;
 
 public class FileBasedTenantRepository implements TenantRepository {
     private static final String FILE_PATH = "./src/data/tenants.txt";
-
     @Override
     public List<Tenant> findAll() {
         List<Tenant> tenants = new ArrayList<>();
@@ -25,7 +24,7 @@ public class FileBasedTenantRepository implements TenantRepository {
     }
 
     @Override
-    public void save(Tenant tenant) {
+    public void add(Tenant tenant) {
         List<Tenant> tenants = findAll();
         tenants.removeIf(t -> t.getId().equals(tenant.getId())); // Remove existing tenant with same ID
         tenants.add(tenant);

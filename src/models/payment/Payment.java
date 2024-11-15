@@ -1,8 +1,10 @@
 package models.payment;
 
+import models.storage.StorageItem;
+
 import java.util.Date;
 
-public class Payment {
+public class Payment implements StorageItem {
     private String id;
     private double amount;
     private Date date;

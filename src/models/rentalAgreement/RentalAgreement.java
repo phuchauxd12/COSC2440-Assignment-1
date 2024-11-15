@@ -1,12 +1,13 @@
 package models.rentalAgreement;
 
 import models.person.roles.Tenant;
+import models.storage.StorageItem;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class RentalAgreement {
+public class RentalAgreement implements StorageItem {
  private String id;
  private String mainTenantId;
  private List<String> subTenantIdList;

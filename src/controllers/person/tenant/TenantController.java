@@ -21,7 +21,7 @@ public class TenantController {
     }
 
     public void addTenant(Tenant tenant) {
-        tenantRepository.save(tenant);
+        tenantRepository.add(tenant);
     }
 
     public void deleteTenant(String tenantId) {

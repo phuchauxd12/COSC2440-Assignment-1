@@ -2,11 +2,12 @@ package models.property;
 
 import models.person.roles.Host;
 import models.person.roles.Owner;
+import models.storage.StorageItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Property {
+public class Property implements StorageItem {
  protected String id;
  protected String address;
  protected double pricing;
