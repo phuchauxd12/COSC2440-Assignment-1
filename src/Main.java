@@ -1,3 +1,4 @@
+import controllers.person.tenant.TenantController;
 import models.person.roles.Tenant;
 import repositories.person.tenant.FileBasedTenantRepository;
 import repositories.person.tenant.TenantRepository;
@@ -15,9 +16,11 @@ public class Main {
 //        tenantRepository.add(new Tenant(IdGenerator.randomId(), "Jane Smith", new Date(700047600000L), "987-654-3210"));
 
         // Display all tenants
-        System.out.println("All Tenants:");
-        view.displayAllTenants(tenantRepository.findAll());
-
+        TenantController tenantController = new TenantController(tenantRepository,view);
+        tenantController.add();
+        tenantController.getAll();
+        tenantController.delete();
+        tenantController.getAll();
         // Find a tenant by ID
 //        Tenant tenant = tenantRepository.findById("1");
 //        System.out.println("\nFound Tenant with ID 1:");
